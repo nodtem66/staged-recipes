@@ -7,7 +7,7 @@ package:
 
 source: 
   url: https://github.com/nodtem66/Scaffolder/archive/v1.5.0-alpha.tar.gz
-  sha256: 84331ad5f29b48df6a806e2f82d7a59d7f307cfee923000c46aa168690c4d762
+  sha256: 9f2d44e27653aaefd0552b0e10765273a48e9d5b500bd05a9f76eda16f2c7e92
 
 build:
   number: 0
@@ -22,9 +22,11 @@ requirements:
 test:
   source_files:
     - scripts/stl/
+    - build/Release # [win]
   commands:
-    - Scaffolder --help
-    - Scaffolder.SliceTest --help
+    - Scaffolder --help # [not win]
+    - Scaffolder.SliceTest --help # [not win]
+    - dir # [win]
 
 about:
   home: https://github.com/nodtem66/Scaffolder
