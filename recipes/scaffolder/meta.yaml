@@ -6,8 +6,8 @@ package:
   version: {{ version }}
 
 source: 
-  url: https://github.com/nodtem66/Scaffolder/archive/v1.5.0-alpha.tar.gz
-  sha256: 9f2d44e27653aaefd0552b0e10765273a48e9d5b500bd05a9f76eda16f2c7e92
+  url: https://github.com/nodtem66/Scaffolder/archive/conda-forge.tar.gz
+  sha256: 99202249fc15129b398af86eeec5a942184faed9c80f37604c4908eec960090b
 
 build:
   number: 0
@@ -22,11 +22,12 @@ requirements:
 test:
   source_files:
     - scripts/stl/
-    - build/Release # [win]
+    - "%PREFIX%" # [win]
   commands:
     - Scaffolder --help # [not win]
     - Scaffolder.SliceTest --help # [not win]
-    - dir # [win]
+    - dir %PREFIX% # [win]
+    - dir %PREFIX%/bin # [win]
 
 about:
   home: https://github.com/nodtem66/Scaffolder

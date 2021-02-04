@@ -10,6 +10,8 @@ cmake  --build build -- -j${CPU_COUNT}
 
 rem Install
 cmake --install build --component scaffolder
+dir %PREFIX%
+dir
 
 rem Test / Check ?
 rem There is no make check/test
