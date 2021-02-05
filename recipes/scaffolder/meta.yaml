@@ -7,7 +7,7 @@ package:
 
 source: 
   url: https://github.com/nodtem66/Scaffolder/archive/conda-forge.tar.gz
-  sha256: 99202249fc15129b398af86eeec5a942184faed9c80f37604c4908eec960090b
+  sha256: 4dd0cea264cdd0081c9383ad52b07683e0e04717e5a5679d72041eeb28426e70
 
 build:
   number: 0
@@ -22,12 +22,13 @@ requirements:
 test:
   source_files:
     - scripts/stl/
-    - "%PREFIX%" # [win]
+    - bin/ # [win]
   commands:
     - Scaffolder --help # [not win]
     - Scaffolder.SliceTest --help # [not win]
-    - dir %PREFIX% # [win]
-    - dir %PREFIX%/bin # [win]
+    - dir # [win]
+    - Scaffolder.exe --help # [win]
+    - Scaffolder.SliceTest --help # [win]
 
 about:
   home: https://github.com/nodtem66/Scaffolder
