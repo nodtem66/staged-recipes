@@ -1,17 +1,17 @@
+setlocal EnableDelayedExpansion
+
 rem Create Makefiles
-cmake -g Ninja ^
-      -DCMAKE_INSTALL_PREFIX=%PREFIX% ^
-      -DCMAKE_BUILD_TYPE=Release ^
-      -DCMAKE_CXX_STANDARD=11 \ ^
+cmake -G "NMake Makefiles" ^
+      -DCMAKE_INSTALL_PREFIX:PATH="%LIBRARY_PREFIX%" ^
+      -DCMAKE_BUILD_TYPE:STRING=Release ^
+      -DCMAKE_CXX_STANDARD=11
       -S . -B build
+if errorlevel 1 exit 1
 
 rem Build
 cmake --build build
+if errorlevel 1 exit 1
 
 rem Install
-cmake --install build --component scaffolder --prefix=%PREFIX%
-dir %PREFIX%\
-dir %PREFIX%\bin
-
-rem Test / Check ?
-rem There is no make check/test
+cmake --install build --component scaffolder 
+if errorlevel 1 exit 1

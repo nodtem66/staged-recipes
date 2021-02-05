@@ -11,13 +11,16 @@ source:
 
 build:
   number: 0
+  script:
+    - echo "This package can't be built on VS<16" # [win and vs<16]
+    - exit 1 # [win and vs<16]
 
 requirements:
   build:
     - {{ compiler('cxx') }}
     - cmake
-    - ninja
-    - pkg-config
+    - ninja # [unix]
+    - pkg-config # [unix]
 
 test:
   source_files:
