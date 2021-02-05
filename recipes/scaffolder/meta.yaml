@@ -22,13 +22,16 @@ requirements:
 test:
   source_files:
     - scripts/stl/
-    - bin/ # [win]
+    - build/ # [win]
   commands:
     - Scaffolder --help # [not win]
     - Scaffolder.SliceTest --help # [not win]
     - dir # [win]
+    - dir %SRC_DIR% # [win]
+    - dir %PREFIX% # [win]
+    - echo %PATH% # [win]
+    - echo $env:Path # [win]
     - Scaffolder.exe --help # [win]
-    - Scaffolder.SliceTest --help # [win]
 
 about:
   home: https://github.com/nodtem66/Scaffolder

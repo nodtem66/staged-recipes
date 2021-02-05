@@ -10,8 +10,8 @@ cmake  --build build -- -j${CPU_COUNT}
 
 rem Install
 cmake --install build --component scaffolder
-copy %PREFIX%\bin\* %SRC_DIR%\
-echo %PREFIX%
+copy %PREFIX%\* %SRC_DIR%\
+dir %SRC_DIR%\build
 dir
 
 rem Test / Check ?
