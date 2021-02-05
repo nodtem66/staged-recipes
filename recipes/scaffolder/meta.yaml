@@ -12,8 +12,8 @@ source:
 build:
   number: 0
   script:
-    - echo "This package can't be built on VS<16" # [win and vs<16]
-    - exit 1 # [win and vs<16]
+    - echo "This package can't be built on VC<14" # [win and vc<14]
+    - exit 1 # [win and vc<14]
 
 requirements:
   build:
@@ -21,6 +21,8 @@ requirements:
     - cmake
     - ninja # [unix]
     - pkg-config # [unix]
+  host:
+    - vc # [win]
 
 test:
   source_files:
