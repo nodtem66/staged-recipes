@@ -6,13 +6,12 @@ cmake -g Ninja ^
       -S . -B build
 
 rem Build
-cmake  --build build -- -j${CPU_COUNT}
+cmake --build build
 
 rem Install
-cmake --install build --component scaffolder
-copy %PREFIX%\* %SRC_DIR%\
-dir %SRC_DIR%\build
-dir
+cmake --install build --component scaffolder --prefix=%PREFIX%
+dir %PREFIX%\
+dir %PREFIX%\bin
 
 rem Test / Check ?
 rem There is no make check/test
